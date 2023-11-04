@@ -7,7 +7,7 @@ minicurl is a tiny wrapper around libcurl for C++
 3. It's just libcurl with fancy wrapping.
 4. Supports C++11 and later.
 
-#### Example
+### Example
 ```cpp
 #include <iostream>
 
@@ -50,4 +50,4 @@ int main()
 ```
 
 ### Donate
-BTC: bc1qn6xu7hlzx94np2u3xs7tgq8uztamrhdh5gv87t
+BTC: `bc1qn6xu7hlzx94np2u3xs7tgq8uztamrhdh5gv87t`
