@@ -16,7 +16,7 @@ minicurl is a tiny wrapper around libcurl for C++
 void make_request(const std::string url)
 {
 	std::string chunk;
-
+	
 	const auto curl = MiniCurlEasy::init();
 	if (curl) {
 		// Variadic arguments don't know the "real" type,
@@ -24,7 +24,7 @@ void make_request(const std::string url)
 		MiniCurlEasy::setopt(curl, CURLOPT_URL, url.c_str());
 		MiniCurlEasy::setopt(curl, CURLOPT_WRITEFUNCTION, MiniCurlEasy::write_memory_cb);
 		MiniCurlEasy::setopt(curl, CURLOPT_WRITEDATA, &chunk);
-
+		
 		const auto ret = MiniCurlEasy::perform(curl);
 		if (ret != CURLE_OK)
 			throw std::runtime_error(
@@ -32,12 +32,12 @@ void make_request(const std::string url)
 				+ MiniCurlEasy::strerror(ret));
 
 		if (url.find_first_of("colepaws"))
-				std::cout << chunk
-					.replace(0, 3, "")
-					.replace(2, 5, "") << '\n';
-			else
-				std::cout << chunk << '\n';
-
+			std::cout << chunk
+				.replace(0, 3, "")
+				.replace(2, 5, "") << '\n';
+		else
+			std::cout << chunk << '\n';
+		
 		MiniCurlEasy::cleanup(curl);
 	}
 };
